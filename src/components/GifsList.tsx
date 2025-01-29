@@ -8,17 +8,7 @@ import {
     CardActionArea,
     Pagination,
 } from "@mui/material";
-
-export interface Gif {
-    id: string;
-    title: string;
-    images: {
-        fixed_height: {
-            height: string;
-            url: string;
-        };
-    };
-}
+import { Gif } from "../types/interfaces";
 
 interface GifsListProps {
     gifs: Gif[];

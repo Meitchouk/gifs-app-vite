@@ -4,6 +4,15 @@ interface GifsHistoryProps {
     history: string[];
 }
 
+/**
+ * GifsHistory component displays a list of previously searched GIFs.
+ * If the history is empty, it shows a message indicating no recent searches.
+ *
+ * @component
+ * @param {GifsHistoryProps} props - The props for the component.
+ * @param {string[]} props.history - An array of strings representing the search history.
+ * @returns {JSX.Element} The rendered component.
+ */
 export const GifsHistory: React.FC<GifsHistoryProps> = ({ history }) => {
     return (
         <Box

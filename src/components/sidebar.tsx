@@ -2,11 +2,21 @@ import { Box, Button, Typography, List, ListItem, ListItemButton, ListItemText }
 import DeleteIcon from "@mui/icons-material/Delete";
 
 interface SidebarProps {
-    history: string[]; // Recibe el historial desde `App.tsx`
+    history: string[];
     onSearch: (query: string) => void;
     onClearHistory: () => void;
 }
 
+/**
+ * Sidebar component that displays a sidebar with a search history list and a clear history button.
+ *
+ * @param {SidebarProps} props - The properties for the Sidebar component.
+ * @param {string[]} props.history - The search history to display in the sidebar.
+ * @param {function} props.onSearch - The function to call when a history item is clicked.
+ * @param {function} props.onClearHistory - The function to call when the clear history button is clicked.
+ *
+ * @returns {JSX.Element} The rendered Sidebar component.
+ */
 export const Sidebar = ({ history, onSearch, onClearHistory }: SidebarProps) => {
     return (
         <Box

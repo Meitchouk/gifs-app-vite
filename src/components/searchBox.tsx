@@ -6,6 +6,19 @@ interface SearchBoxComponentProps {
     onSearch: (query: string) => void;
 }
 
+/**
+ * SearchBoxComponent is a functional component that renders a search box with an input field and a search button.
+ * It allows users to enter a search query and trigger a search action.
+ *
+ * @component
+ * @param {SearchBoxComponentProps} props - The props for the SearchBoxComponent.
+ * @param {function} props.onSearch - The callback function to be called when the search button is clicked.
+ *
+ * @returns {JSX.Element} The rendered search box component.
+ *
+ * @example
+ * <SearchBoxComponent onSearch={(query) => console.log(query)} />
+ */
 export const SearchBoxComponent = ({ onSearch }: SearchBoxComponentProps) => {
     const [searchQuery, setSearchQuery] = useState<string>("");
 
@@ -15,7 +28,7 @@ export const SearchBoxComponent = ({ onSearch }: SearchBoxComponentProps) => {
             return;
         }
         onSearch(searchQuery);
-        setSearchQuery(""); // Limpia el campo de texto después de la búsqueda
+        setSearchQuery("");
     };
 
     return (

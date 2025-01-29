@@ -1,17 +1,26 @@
 import axios from "axios";
-import { Gif } from "../components/GifsList";
+import { Gif } from "../types/interfaces";
 
-// Leer variables de entorno
+// environment variables
 const BASE_URL = import.meta.env.VITE_GIPHY_URL;
 const API_KEY = import.meta.env.VITE_GIPHY_API_KEY;
 
-// Validar que las variables de entorno no sean undefined o vacías
+// check if environment variables are set
 if (!BASE_URL || !API_KEY) {
     throw new Error(
         "Faltan las variables de entorno: asegúrate de que VITE_GIPHY_URL y VITE_GIPHY_API_KEY están configuradas correctamente."
     );
 }
 
+/**
+ * Fetches GIFs from the API based on the search query, limit, and offset.
+ *
+ * @param {string} search - The search query to find GIFs.
+ * @param {number} [limit=10] - The maximum number of GIFs to return. Defaults to 10.
+ * @param {number} [offset=0] - The number of GIFs to skip before starting to collect the result set. Defaults to 0.
+ * @returns {Promise<{ data: Gif[]; pagination: { total_count: number } }>} A promise that resolves to an object containing the GIF data and pagination information.
+ * @throws {Error} Throws an error if the response data is malformed or if there is an issue with the request.
+ */
 export const getGifs = async (
     search: string,
     limit: number = 10,
