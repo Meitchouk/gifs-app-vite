@@ -27,7 +27,7 @@ export const getGifs = async (
             },
         });
 
-        console.log("Response data:", response.data);
+        // console.log("Response data:", response.data);
 
         const { data, pagination } = response.data || {};
         if (Array.isArray(data) && pagination?.total_count !== undefined) {
